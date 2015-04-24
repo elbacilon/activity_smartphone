@@ -11,6 +11,10 @@ by 30 subjects performing activities of daily living, the package create a tidy 
 set with the average by each activity and each subject of each mean and standard 
 deviation of each measurement provided in the collected data.
 
+# Example of usage of the package
+If others experiments are done and generate same data collection whatever the activity 
+or subject we can create a tidy data set from these new experiments.
+
 # Installation instructions, 
 
 Before starting instruction below set your working directory
@@ -18,9 +22,11 @@ Before starting instruction below set your working directory
 ```{r}
 
 
-# if not alrady done install and load the package "dplyr"
-# install.packages("dplyr")
-# library(dplyr)
+## if not alrady done install and load the package "dplyr" and "plyr"
+        ## install.packages("dplyr")
+        ## library(dplyr)
+        ## install.packages("plyr")
+        ## library(plyr)
 
 # Download Samsung data if does not already exist 
 if(!file.exists("uci_har.zip")){  
@@ -34,9 +40,6 @@ if(!file.exists("./uci_har_data")){
         unzip("uci_har.zip", exdir = "./uci_har_data", junkpaths = TRUE)
         }
         
-# set created directory as working directory
-setwd("./uci_har_data")
-
 # download the script, load and execute it to create the tidy data_set in the directory
 fileUrl <- "https://raw.githubusercontent.com/elbacilon/activity_smartphone/master/run_analysis.R"
 download.file(fileUrl, destfile = "run_analysis.R")
@@ -48,9 +51,11 @@ source("run_analysis.R")
 The repository includes the following files:
 =========================================
 - CodeBook.md: provide information about the variables contained in the tidy data set
-- README.md: 
+- README.md: the rpesent file
+- uci_har.zip: the source Samsung data set
 - run_analysis.R: the script that create the tidy data set as long as the Samsung data is in your working directory
-
+- tidy_data.txt: the tidy data set ( out put of the script run_analysis.R as long 
+as the source Samsung data set uci_har.zip is in your working directory)
 
 The  run_analysis.R script performed the following operation:
 
@@ -67,7 +72,7 @@ activity names as value
 -5. Read features.txt file and strip dashes, coma and parenthes to rename "set" column names 
 with valid and descriptive variable names
 
--6. Merge "subject"", "activity" and "Set" in a single data.frame named "data"
+-6. Merge "subject"", "activity" and "Set" data frames in a single data.frame named "data"
 
 -7. Subset "data" with only the measurements on the mean and standard deviation for each measurement in a data frame named "activity_subject_list"
 

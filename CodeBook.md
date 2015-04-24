@@ -64,6 +64,10 @@ The script "run_analysis.R" perform following high level cleaning tasks on data:
 - remove dashes, coma and parenthes from column names
 - rename column names by adding "mean" after reshapping the data set in step 10
 
+I did not apply more transformation to variable names like set all in lower case or 
+transform "Acc" by "Acceleration" with a space because I consider it does not
+make the name more descriptive than they are in initial data set.
+
 Refer to the README file for more details on the script itself:
 [https://github.com/elbacilon/activity_smartphone/blob/master/README.md]()
  

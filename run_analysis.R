@@ -2,18 +2,18 @@
 
 # Merges the training and the test sets to create one data set.
 ## Create subject data.frame of single column named "Subject" and levels as Subject id
-subject_test <- read.table("subject_test.txt") # Read subject_test
-subject_train <- read.table("subject_train.txt") # Read subject_train
+subject_test <- read.table("./uci_har_data/subject_test.txt") # Read subject_test
+subject_train <- read.table("./uci_har_data/subject_train.txt") # Read subject_train
 subject <- rbind(subject_test, subject_train) # Combine data
 names(subject) <- "Subject" # Name variable
 subject <- factor(subject$Subject) # convert in factor
 
 ## Create activity factor with named Activity and Uses descriptive activity names as levels
-y_train <- read.table("y_train.txt") # Read Training labels
-y_test <- read.table("y_test.txt") # Read Training labels
+y_train <- read.table("./uci_har_data/y_train.txt") # Read Training labels
+y_test <- read.table("./uci_har_data/y_test.txt") # Read Training labels
 activity <- rbind(y_train, y_test)
 names(activity) <- "Activity"
-activity_labels <- read.table("activity_labels.txt") # Read activity labels
+activity_labels <- read.table("./uci_har_data/activity_labels.txt") # Read activity labels
 activity <- factor(activity$Activity) # convert in factor
 
 activity <- mapvalues(activity, c("1","2", "3", "4", "5", "6"), c("WALKING","WALKING_UPSTAIRS", 
@@ -21,10 +21,10 @@ activity <- mapvalues(activity, c("1","2", "3", "4", "5", "6"), c("WALKING","WAL
 
 ## Create set data.frame  with 561 variables 
 # label each variable with descriptive variable names stripped from dashes, coma and parenthese
-x_train <- read.table("X_train.txt") # Read Training set
-x_test <- read.table("X_test.txt") # Read Test set
+x_train <- read.table("./uci_har_data/X_train.txt") # Read Training set
+x_test <- read.table("./uci_har_data/X_test.txt") # Read Test set
 set <- rbind(x_train, x_test)
-features <- read.table("features.txt") # Read features
+features <- read.table("./uci_har_data/features.txt") # Read features
 features <- features[,2] # Keep only activity column
 features <- gsub("-", " ", features) # remove dash
 features <- gsub("(", "", features, fixed="TRUE") # remove parenthese
@@ -61,5 +61,10 @@ tidy_data <- cbind(df, tidy_data)
 
 # Create a text file with the data set
 write.table(tidy_data, file = "tidy_data.txt", row.name=FALSE) 
-print("the tidy_data.txt file has been created in your working directory")
 
+# clean up working directory
+rm("subject_test","subject_train", "subject", "y_train", "y_test", "activity", "activity_labels",
+   "x_train", "x_test", "set", "features", "data", "list_data", "list", "df")
+
+# Confirm tidy set creation successfull
+print("the tidy_data.txt file has been created in your working directory")
