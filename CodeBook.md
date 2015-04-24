@@ -49,15 +49,12 @@ I have consider following principles to create the tidy data set:
 - Each observation of the variable is in a different row.
 
 I have performed the following tasks:
-1. Download from the source URL and Unzip data file in a new directory "data" in working directory
-2. Create a "subject" factor levels as Subject id 1 to 30 from subject_test.txt and subject_train.txt files
-3. Create a "activity" factor levels as activity levels from y_train, y_test.txt 
-4. Transform "activity" factor using descriptive activity names from activity_labels.txt files
-5. Create a "set"" data.frame with 561 variables from x_train.txt and x_test.txt.
-6. Rename "set" column names with valid and descriptive variable names from features.txt
-7. Merge "subject"", "activity" and "Set" in a single data.frame named "data"
-8. Subset "data" with only the measurements on the mean and standard deviation for each measurement 
-10. From "data" create a tidy data set with the mean for each variable for each activity and each subject. 
+- Merges the training and the test sets to create one data set.
+- Extracts only the measurements on the mean and standard deviation for each measurement. 
+- Uses descriptive activity names to name the activities in the data set
+- Appropriately labels the data set with descriptive variable names. 
+- From the data set in step 4, creates a second, independent tidy data set with 
+the average of each variable for each activity and each subject.
 
 ###Cleaning of the data
 The script "run_analysis.R" perform following high level cleaning tasks on data:
