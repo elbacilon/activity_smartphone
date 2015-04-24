@@ -53,17 +53,27 @@ The repository includes the following files:
 
 
 The  run_analysis.R script performed the following operation:
-1. Read subject_test.txt and subject_train.txt files to combine them in a "subject" factor 
+-1. Read subject_test.txt and subject_train.txt files to combine them in a "subject" factor 
 levels as Subject id 1 to 30
-2. Read y_train, y_test.txt  files to combine them in a "activity" factor levels as activity 
-3. Read activity_labels.txt files to replace "activity" factor levels with descriptive 
+
+-2. Read y_train, y_test.txt  files to combine them in a "activity" factor levels as activity 
+
+-3. Read activity_labels.txt files to replace "activity" factor levels with descriptive 
 activity names as value
-4. Read x_train.txt and x_test.txt files to combine them in "set"" data.frame with 561 variables 
-5. Read features.txt file and strip dashes, coma and parenthes to rename "set" column names 
+
+-4. Read x_train.txt and x_test.txt files to combine them in "set"" data.frame with 561 variables 
+
+-5. Read features.txt file and strip dashes, coma and parenthes to rename "set" column names 
 with valid and descriptive variable names
-6. Merge "subject"", "activity" and "Set" in a single data.frame named "data"
-7. Subset "data" with only the measurements on the mean and standard deviation for each measurement in a data frame named "activity_subject_list"
-8. split tidy "data" in a list of dataframe for each variable for each activity and each subject named "list_data"
-9. Using "list_data" Calculate mean for each variable for each activity and each subject
-10. Combine "list_data" in a data frame named "tidy_data"
-11. Rename column by adding mean to each variable and add one column for Subject and one column for activity
+
+-6. Merge "subject"", "activity" and "Set" in a single data.frame named "data"
+
+-7. Subset "data" with only the measurements on the mean and standard deviation for each measurement in a data frame named "activity_subject_list"
+
+-8. split tidy "data" in a list of dataframe for each variable for each activity and each subject named "list_data"
+
+-9. Using "list_data" Calculate mean for each variable for each activity and each subject
+
+-10. Combine "list_data" in a data frame named "tidy_data"
+
+-11. Rename column by adding mean to each variable and add one column for Subject and one column for activity
