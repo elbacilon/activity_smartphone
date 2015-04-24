@@ -29,16 +29,16 @@ if(!file.exists("uci_har.zip")){
         dateDownloaded <- date() # set date of the download
         }
 # Create a directory and unzip the Samsung data if directory does not already exist 
-if(!file.exists("./uci_har_data3")){
-        dir.create("./uci_har_data3")
-        unzip("uci_har.zip", exdir = "./uci_har_data3", junkpaths = TRUE)
+if(!file.exists("./uci_har_data4")){
+        dir.create("./uci_har_data4")
+        unzip("uci_har.zip", exdir = "./uci_har_data4", junkpaths = TRUE)
         }
         
 # set created directory as working directory
-setwd("./uci_har_data3")
+setwd("./uci_har_data4")
 
 # download the script, load and execute it to create the tidy data_set in the directory
-fileUrl <- "https://github.com/elbacilon/activity_smartphone/blob/master/run_analysis.R"
+fileUrl <- "https://raw.githubusercontent.com/elbacilon/activity_smartphone/master/run_analysis.R"
 download.file(fileUrl, destfile = "run_analysis.R")
 source("run_analysis.R")
 
