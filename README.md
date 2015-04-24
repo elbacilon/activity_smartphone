@@ -53,6 +53,7 @@ The repository includes the following files:
 
 
 The  run_analysis.R script performed the following operation:
+
 -1. Read subject_test.txt and subject_train.txt files to combine them in a "subject" factor 
 levels as Subject id 1 to 30
 
